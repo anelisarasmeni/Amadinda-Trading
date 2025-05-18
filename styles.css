@@ -402,5 +402,38 @@ li {
 .contact-links a:hover {
   text-decoration: underline;
 }
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 5px;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
 
 

@@ -1,5 +1,6 @@
-// ==== IMAGE SLIDER for other pages ====
 const slides = document.querySelectorAll(".slide");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
 
 if (slides.length > 0) {
   let currentSlide = 0;
@@ -16,9 +17,28 @@ if (slides.length > 0) {
     showSlide(currentSlide);
   }
 
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
   showSlide(currentSlide);
-  setInterval(nextSlide, 5000);
+  let sliderInterval = setInterval(nextSlide, 5000);
+
+  // Add button event listeners
+  if (nextBtn && prevBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      clearInterval(sliderInterval);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      clearInterval(sliderInterval);
+    });
+  }
 }
+
 
 // ==== MOBILE MENU TOGGLE ====
 const menuToggle = document.getElementById("menu-toggle");
